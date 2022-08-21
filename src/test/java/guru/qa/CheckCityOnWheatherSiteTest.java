@@ -1,6 +1,7 @@
 package guru.qa;
 
 import com.codeborne.selenide.CollectionCondition;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -37,7 +38,7 @@ public class CheckCityOnWheatherSiteTest {
         $("input.js-input").setValue(city).pressEnter();
         $$(".information__header__right a").shouldHave(CollectionCondition.texts(expectedLink));
     }
-
+    @DisplayName("Проверяем что введенные города из России")
     @EnumSource(City.class)
     @ParameterizedTest
     void checkEnumCityAndCountry(City city) {
